@@ -1,3 +1,7 @@
 allowBuilds:
   sharp: false
   unrs-resolver: false
+  # prisma runs a Node-version preinstall check; @prisma/engines downloads the
+  # schema engine binary on postinstall, which `prisma migrate` needs.
+  prisma: true
+  "@prisma/engines": true
