@@ -14,11 +14,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${rubik.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground font-rubik">{children}</body>
+    <html lang="en" className={`${rubik.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-gradient text-foreground font-rubik">
+        <header className="flex items-center text-2xl p-5 border-b border-background-warm">
+          <h1>
+            <b>Durham Robotics</b> Inventory
+          </h1>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
