@@ -1,12 +1,8 @@
-"use server";
-
 import { redirect } from "next/navigation";
 import { auth, signOut } from "@/auth";
 
-/**
- * Clear session and end Keycloak SSO session.
- */
-export async function signOutEverywhere() {
+// Clear session and end Keycloak SSO session.
+export async function POST() {
   const session = await auth();
   const idToken = session?.idToken;
 
