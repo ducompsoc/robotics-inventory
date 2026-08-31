@@ -4,9 +4,6 @@ const globalForPrisma = globalThis as unknown as {
   prisma?: PrismaClient;
 };
 
-// `accelerateUrl` and `adapter` are mutually exclusive in Prisma 7 and exactly
-// one is required. A `prisma+postgres://` URL is the Accelerate HTTP transport,
-// so no driver adapter is involved.
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({

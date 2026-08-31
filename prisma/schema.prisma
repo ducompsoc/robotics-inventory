@@ -1,13 +1,8 @@
-// The `prisma-client` generator (not the deprecated `prisma-client-js`) emits
-// TypeScript into `output`, which Turbopack compiles directly. Import the client
-// only from this path — never from the bare `@prisma/client` specifier, which
-// re-exports `.prisma/client/default` and therefore breaks with a custom output.
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
 }
 
-// In Prisma 7 the connection URL lives in `prisma.config.ts`, not here.
 datasource db {
   provider = "postgresql"
 }
