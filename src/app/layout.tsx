@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
+import { signOutEverywhere } from "@/app/actions";
 import { auth } from "@/auth";
 
 const rubik = Rubik({
@@ -25,7 +26,14 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             <b>Durham Robotics</b> Inventory
           </h1>
           {isAuthenticated && (
-            <p>Signed in as {session.user?.name ?? session.user?.email}</p>
+            <div className="flex flex-col items-end">
+              <p>Signed in as {session.user?.name ?? session.user?.email}</p>
+              <form action={signOutEverywhere}>
+                <button className="underline" type="submit">
+                  Sign out
+                </button>
+              </form>
+            </div>
           )}
         </header>
         {children}
