@@ -1,0 +1,55 @@
+// The `prisma-client` generator (not the deprecated `prisma-client-js`) emits
+// TypeScript into `output`, which Turbopack compiles directly. Import the client
+// only from this path — never from the bare `@prisma/client` specifier, which
+// re-exports `.prisma/client/default` and therefore breaks with a custom output.
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+// In Prisma 7 the connection URL lives in `prisma.config.ts`, not here.
+datasource db {
+  provider = "postgresql"
+}
+
+model Contact {
+  email  String  @id
+  name   String
+  idHeld Boolean @default(false)
+
+  teams Team[]
+  items Item[]
+}
+
+model Team {
+  id           String  @id @default(uuid(7))
+  name         String?
+  contact      Contact @relation(fields: [contactEmail], references: [email])
+  contactEmail String
+
+  loans Loan[]
+}
+
+model Item {
+  id            String   @id @default(uuid(7))
+  name          String
+  imageUrl      String?
+  quantity      Int
+  rsStockNumber String?
+  mpn           String?
+  owner         Contact? @relation(fields: [ownerEmail], references: [email])
+  ownerEmail    String?
+
+  loans Loan[]
+}
+
+model Loan {
+  id         String    @id @default(uuid(7))
+  team       Team      @relation(fields: [teamId], references: [id])
+  teamId     String
+  item       Item      @relation(fields: [itemId], references: [id])
+  itemId     String
+  quantity   Int
+  loanedAt   DateTime  @default(now())
+  returnedAt DateTime?
+}
