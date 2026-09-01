@@ -82,3 +82,8 @@ export async function holdContact(email: string): Promise<Contact> {
 export async function unholdContact(email: string): Promise<Contact> {
   return updateContact(email, { idHeld: false });
 }
+
+export async function toggleContactIdHeld(email: string): Promise<Contact> {
+  const contact = await getContactByEmail(email);
+  return contact.idHeld ? unholdContact(email) : holdContact(email);
+}

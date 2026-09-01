@@ -24,3 +24,7 @@
 .warm-glow {
   box-shadow: 0 0 3em var(--color-background-warm);
 }
+
+*:disabled {
+  @apply opacity-50;
+}
