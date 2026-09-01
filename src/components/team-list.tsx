@@ -1,4 +1,6 @@
 import Contact from "@/components/contact";
+import ContactForm from "@/components/contact-form";
+import TeamForm from "@/components/team-form";
 import { getAllTeams } from "@/lib/inventory";
 
 export default async function TeamList() {
@@ -18,6 +20,9 @@ export default async function TeamList() {
           <Contact {...team.contact} />
         </div>
       ))}
+      <div>
+        <TeamForm />
+      </div>
     </div>
   );
 }

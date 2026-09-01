@@ -20,7 +20,7 @@ export default function Contact({ email, idHeld, name }: ContactProps) {
   }
 
   return (
-    <div className="flex flex-col text-sm p-2">
+    <div className="flex flex-col text-sm gap-1 p-2">
       <button
         type="button"
         className={`flex items-center gap-1 font-bold text-left cursor-pointer ${
