@@ -28,3 +28,11 @@
 *:disabled {
   @apply opacity-50;
 }
+
+input {
+  @apply rounded-sm px-1;
+}
+
+input:focus {
+  @apply outline outline-foreground;
+}

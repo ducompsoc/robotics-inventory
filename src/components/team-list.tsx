@@ -1,5 +1,4 @@
 import Contact from "@/components/contact";
-import ContactForm from "@/components/contact-form";
 import TeamForm from "@/components/team-form";
 import { getAllTeams } from "@/lib/inventory";
 
@@ -15,7 +14,7 @@ export default async function TeamList() {
         >
           <div className="flex flex-row items-center p-2 gap-3 border-b border-background-warm">
             {<div className="text-xl font-bold">{team.name ?? "Unnamed"}</div>}
-            <div className="opacity-75">{team.id}</div>
+            <div className="text-xs opacity-75">{team.id}</div>
           </div>
           <Contact {...team.contact} />
         </div>
