@@ -1,11 +1,16 @@
+import { IdCard } from "lucide-react";
 import { getAllTeams } from "@/lib/inventory";
 
 function Contact(contact: { email: string; idHeld: boolean; name: string }) {
   return (
     <div className="flex flex-col text-sm p-2">
-      <div className="font-bold">{contact.name}</div>
+      <div className="font-bold" onClick={() => {}}>
+        {contact.name}{" "}
+        {contact.idHeld ? (
+          <IdCard className="inline-block h-lh text-contrast" />
+        ) : null}
+      </div>
       <div>{contact.email}</div>
-      <div>ID held: {contact.idHeld.toString()}</div>
     </div>
   );
 }
