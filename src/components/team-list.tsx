@@ -12,7 +12,7 @@ export default async function TeamList() {
           key={team.id}
         >
           <div className="flex flex-row items-center p-2 gap-3 border-b border-background-warm">
-            <div className="text-xl font-bold">{team.name}</div>
+            {<div className="text-xl font-bold">{team.name ?? "Unnamed"}</div>}
             <div className="opacity-75">{team.id}</div>
           </div>
           <Contact {...team.contact} />
