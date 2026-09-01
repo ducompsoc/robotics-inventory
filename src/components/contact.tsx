@@ -23,8 +23,8 @@ export default function Contact({ email, idHeld, name }: ContactProps) {
     <div className="flex flex-col text-sm p-2">
       <button
         type="button"
-        className={`flex items-center gap-1 font-bold text-left cursor-pointer disabled:opacity-50 ${
-          isPending ? "opacity-50 cursor-wait" : ""
+        className={`flex items-center gap-1 font-bold text-left cursor-pointer ${
+          isPending ? "cursor-wait" : ""
         }`}
         disabled={isPending}
         onClick={handleToggleIdHeld}
